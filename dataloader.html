@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gainsight PX Data Loader</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="dashboard.html">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="widget.html">Widget</a></li>
+            <li><a href="#">Payment</a></li>
+            <li><a href="dataloader.html">DataLoader</a></li>
+            <li><a href="index.html">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Gainsight PX Data Loader</h1>
+        <form id="dataLoaderForm">
+            <label>API Key:</label>
+            <input type="text" placeholder="Enter API Key">
+            <label>Update Data For:</label>
+            <select>
+                <option>Account</option>
+                <option>User</option>
+            </select>
+            <label>User ID:</label>
+            <input type="text" placeholder="Enter User ID">
+            <label>Select Operation:</label>
+            <select>
+                <option>Read</option>
+                <option>Update</option>
+                <option>Delete</option>
+                <option>Bulk Update</option>
+                <option>Bulk Delete</option>
+            </select>
+            <button type="submit">Execute</button>
+        </form>
+        <div class="response-section">
+            <h3>Execution Response:</h3>
+            <div id="executionResponse"></div>
+            <h3>File Content:</h3>
+            <div id="fileContent"></div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
