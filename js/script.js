@@ -1,36 +1,40 @@
-document.getElementById('loginForm')?.addEventListener('submit', function(e) {
-    e.preventDefault();
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    // Simple validation
-    if (email && password) {
-        // Track login event
-        console.log('Login attempted with:', email);
-        // Redirect to dashboard
-        window.location.href='dashboard.html';
-    } else {
-        alert('Please enter both email and password');
+document.addEventListener("DOMContentLoaded", () => {
+    // Login Form Handler
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            if (email && password) {
+                console.log('Login attempted with:', email);
+                window.location.href = 'dashboard.html';
+            } else {
+                alert('Please enter both email and password');
+            }
+        });
+    }
+
+    // Data Loader Page Logic
+    const select = document.getElementById("option");
+    const display = document.getElementById("label1");
+    const input = document.getElementById("i1");
+
+    if (select && display && input) {
+        select.addEventListener("change", () => {
+            if (select.value === "Account") {
+                display.innerHTML = `Account ID:`;
+                input.placeholder = `Enter Account ID`;
+            } else if (select.value === "User") {
+                display.innerHTML = `User ID:`;
+                input.placeholder = `Enter User ID`;
+            }
+        });
     }
 });
 
-// Dataloader Page
-select=document.getElementById("option")
-display=document.getElementById("label1")
-input=document.getElementById("i1")
 
-select.addEventListener("change",()=>{
-    if(select.value=="Account"){
-        display.innerHTML=`Account ID:`
-        input.placeholder=`Enter Account ID`
-
-
-    }
-    else if(select.value=="User"){
-        display.innerHTML=`User ID:`
-        input.placeholder=`Enter User ID`
-    }
-})
-
+// Draggable Widgets
 const draggables = document.querySelectorAll('.draggable');
 draggables?.forEach(draggable => {
     draggable.addEventListener('mousedown', function(e) {
@@ -54,9 +58,15 @@ draggables?.forEach(draggable => {
     };
 });
 
-
-
-
+// Initialize draggable positions on widget page
+window.addEventListener('DOMContentLoaded', function() {
+    const draggables = document.querySelectorAll('.draggable');
+    draggables?.forEach((draggable, index) => {
+        draggable.style.position = 'absolute';
+        draggable.style.left = `${100 + index * 220}px`;
+        draggable.style.top = `${100 + index * 120}px`;
+    });
+});
 
 
 
