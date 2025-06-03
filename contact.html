@@ -1,53 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="dashboard.html">Home</a></li>
-            <li><a href="aboutus.html">About US</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="widget.html">Widgets</a></li>
-            <li><a href="#">Payment</a></li>
-            <li><a href="dataloader.html">Dataloader</a></li>
-            <li><a href="index.html">Logout</a></li>
-        </ul>
-    </nav>
-    <div class="container dashboard" style="display:flex; justify-content:center;">
-        <div class="sidebar" style="min-width:450px">
-            <h2>Side Bar</h2>
-            <form id="contactForm" >
-                <label>Contact</label>
-                <label>Name:</label>
-                <input class="name" type="text" placeholder="First Name">
-                <input class="name" type="text" placeholder="Last Name">
-                <label>Email:</label>
-                <input type="email" placeholder="your email">
-                <label>your message:</label>
-                <textarea></textarea>
-                <label>Gender:</label>
-                <div class="dropdown">
-                    <div class="dropdown-selected">Select Gender</div>
-                    <div class="dropdown-options">
-                        <div class="dropdown-option">Male</div>
-                        <div class="dropdown-option">Female</div>
-                        <div class="dropdown-option">Other</div>
-                    </div>
-                </div>
-                <label>Subject:</label>
-                <input type="text">
-                <label>Message:</label>
-                <textarea></textarea>
-                <button type="submit">Submit</button>
-            </form>
+  <nav>
+    <ul>
+      <li><a href="dashboard.html">Home</a></li>
+      <li><a href="aboutus.html">About US</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="widget.html">Widgets</a></li>
+      <li><a href="#">Payment</a></li>
+      <li><a href="dataloader.html">Dataloader</a></li>
+      <li><a href="index.html">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="container dashboard" style="display:flex; justify-content:center;">
+    <div class="sidebar" style="min-width:450px">
+      <h2>Side Bar</h2>
+      <form id="contactForm">
+        <label>Name:</label>
+        <input class="name" type="text" placeholder="First Name"/>
+        <input class="name" type="text" placeholder="Last Name"/>
+        <label>Email:</label>
+        <input type="email" placeholder="your email"/>
+        <label>Your message:</label>
+        <textarea></textarea>
+        <label>Gender:</label>
+        <div class="dropdown">
+          <div class="dropdown-selected">Select Gender</div>
+          <div class="dropdown-options" style="display: none;">
+            <div class="dropdown-option">Male</div>
+            <div class="dropdown-option">Female</div>
+            <div class="dropdown-option">Other</div>
+          </div>
         </div>
+        <label>Subject:</label>
+        <input type="text"/>
+        <label>Message:</label>
+        <textarea></textarea>
+        <button type="submit">Submit</button>
+      </form>
     </div>
-    <footer class="f1" >©2025 small website | Designed by Veerendra Kumar</footer>
-    <script src="js/script.js"></script>
+  </div>
+
+  <footer class="f1">©2025 small website | Designed by Veerendra Kumar</footer>
+
+  <script src="js/contact.js"></script>
 </body>
 </html>
