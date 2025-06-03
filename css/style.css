@@ -272,6 +272,49 @@ form button:hover {
 
 
 
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.dropdown-selected {
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+.dropdown-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 10;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-option {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.dropdown-option:last-child {
+    border-bottom: none;
+}
+
+.dropdown-option:hover {
+    background-color: #f0f0f0;
+}
+
 
 
 
