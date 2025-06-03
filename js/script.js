@@ -94,9 +94,3 @@ window.addEventListener('DOMContentLoaded', function() {
         draggable.style.top = `${100 + index * 120}px`;
     });
 });
-
-
-
-
-
-
