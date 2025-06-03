@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +10,7 @@
     <nav>
         <ul>
             <li><a href="dashboard.html">Home</a></li>
-            <li><a href="aboutus.html">About US</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li><a href="widget.html">Widgets</a></li>
             <li><a href="#">Payment</a></li>
@@ -20,20 +18,25 @@
             <li><a href="index.html">Logout</a></li>
         </ul>
     </nav>
+
     <div class="container dashboard" style="display:flex; justify-content:center;">
         <div class="sidebar" style="min-width:450px">
-            <h2>Side Bar</h2>
-            <form id="contactForm" >
-                <label>Contact</label>
-                <label>Name:</label>
-                <input class="name" type="text" placeholder="First Name">
-                <input class="name" type="text" placeholder="Last Name">
-                <label>Email:</label>
-                <input type="email" placeholder="your email">
-                <label>your message:</label>
-                <textarea></textarea>
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <label for="firstName">First Name:</label>
+                <input class="name" type="text" id="firstName" placeholder="First Name" required>
+
+                <label for="lastName">Last Name:</label>
+                <input class="name" type="text" id="lastName" placeholder="Last Name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="Your email" required>
+
+                <label for="message">Your Message:</label>
+                <textarea id="message" required></textarea>
+
                 <label>Gender:</label>
-                <div class="dropdown">
+                <div class="dropdown" id="genderDropdown">
                     <div class="dropdown-selected">Select Gender</div>
                     <div class="dropdown-options">
                         <div class="dropdown-option">Male</div>
@@ -41,15 +44,19 @@
                         <div class="dropdown-option">Other</div>
                     </div>
                 </div>
-                <label>Subject:</label>
-                <input type="text">
-                <label>Message:</label>
-                <textarea></textarea>
+
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" required>
+
+                <label for="additionalMessage">Additional Message:</label>
+                <textarea id="additionalMessage" required></textarea>
+
                 <button type="submit">Submit</button>
             </form>
         </div>
     </div>
-    <footer class="f1" >©2025 small website | Designed by Veerendra Kumar</footer>
-    <script src="js/script.js"></script>
+
+    <footer class="f1">©2025 small website | Designed by Veerendra Kumar</footer>
+    <script src="js/contact.js"></script>
 </body>
 </html>
