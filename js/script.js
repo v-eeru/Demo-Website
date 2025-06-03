@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault();
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-            if (email && password) {
+            if ((email==="veerupotpally2003@gmail.com" || "veeru@gmail.com" || "pshetty@gmail.com"||"kumar@gmail.com" )&& password) {
                 console.log('Login attempted with:', email);
                 window.location.href = 'dashboard.html';
             } else {
@@ -31,6 +31,33 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }
+
+    // Dropdown Logic
+    const dropdown = document.querySelector('.dropdown');
+    const selected = dropdown.querySelector('.dropdown-selected');
+    const options = dropdown.querySelector('.dropdown-options');
+
+    // Toggle dropdown visibility
+   selected.addEventListener('click',()=>{
+    options.style.display=options.style.display==='block'?'none':'block';
+   })
+    //Handle option selection
+    options.addEventListener('click', (event) => {
+        if (event.target.classList.contains('dropdown-option')) {
+            selected.textContent = event.target.textContent;
+            options.style.display = 'none';
+        }
+    });
+       options.addEventListener('click',(event)=>{
+        if(event.target.classList.contains('dropdown-option')){
+            selected.textContent=event.target.textContent
+        }
+       })
+
+    // document.addEventListener('click',event=>{
+        
+    
+    
 });
 
 
