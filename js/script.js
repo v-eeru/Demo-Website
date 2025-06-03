@@ -61,6 +61,12 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+
+
+
+
+
+
 // Draggable Widgets
 const draggables = document.querySelectorAll('.draggable');
 draggables?.forEach(draggable => {
@@ -94,3 +100,9 @@ window.addEventListener('DOMContentLoaded', function() {
         draggable.style.top = `${100 + index * 120}px`;
     });
 });
+
+
+
+
+
+
