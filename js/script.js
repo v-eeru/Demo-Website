@@ -7,22 +7,50 @@
     var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
   })(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-4YCPERINHU7C-2");
 
+
 document.addEventListener("DOMContentLoaded", () => {
-    // Login Form Handler
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
             const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
-            if ((email==="veerupotpally2003@gmail.com" || "veeru@gmail.com" || "pshetty@gmail.com"||"kumar@gmail.com" )&& password) {
+
+            if (
+                (email === "veerupotpally2003@gmail.com" || 
+                 email === "veeru@gmail.com" || 
+                 email === "pshetty@gmail.com" || 
+                 email === "kumar@gmail.com") && password
+            ) {
                 console.log('Login attempted with:', email);
+
+                // Aptrinsic Identify
+                if (typeof aptrinsic !== 'undefined') {
+                    aptrinsic("identify",
+                        {
+                            id: email,
+                            email: email,
+                            firstName: "Veeru",
+                            lastName: "Kumar",
+                            signUpDate: Date.now()
+                        },
+                        {
+                            id: "account001",
+                            name: "Small Website",
+                            Program: "Test"
+                        }
+                    );
+                }
+
+                // Redirect to dashboard
                 window.location.href = 'dashboard.html';
             } else {
                 alert('Please enter both email and password');
             }
         });
     }
+});
+
 
     // Data Loader Page Logic
     const select = document.getElementById("option");
