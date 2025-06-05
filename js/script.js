@@ -1,4 +1,3 @@
-// PX snippet — keep this exactly once on all pages, ideally at top of your main JS file
 (function(n,t,a,e,co){
   var i="aptrinsic";
   n[i]=n[i]||function(){
@@ -13,14 +12,25 @@
   c.parentNode.insertBefore(r,c);
 })(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-NLM0CA3YQKIW-2");
 
+// Helper: Retry PX SDK readiness before calling your callback
+function callIdentifyWhenReady(callback, retries = 10, delay = 200) {
+  if (typeof aptrinsic !== 'undefined' && aptrinsic) {
+    callback();
+  } else if (retries > 0) {
+    setTimeout(() => callIdentifyWhenReady(callback, retries - 1, delay), delay);
+  } else {
+    console.error("PX SDK not loaded, commands not fired.");
+  }
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   // Login Form Handler
   const loginForm = document.getElementById('loginForm');
   if (loginForm) {
-    loginForm.addEventListener('submit', function (e) {
+    loginForm.addEventListener('submit', function(e) {
       e.preventDefault();
-      const email = document.getElementById('email').value.trim();
-      const password = document.getElementById('password').value.trim();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
 
       const allowedEmails = [
         "Veeru@gmail.com",
@@ -33,9 +43,9 @@ document.addEventListener("DOMContentLoaded", () => {
       if (allowedEmails.includes(email) && password) {
         console.log('Login attempted with:', email);
 
-        if (typeof aptrinsic !== 'undefined') {
-          // Your existing switch for identify + globalContext
-          switch (email) {
+        callIdentifyWhenReady(() => {
+          let userPackage = "";
+          switch(email) {
             case "Veeru@gmail.com":
               aptrinsic("identify",
                 {
@@ -48,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   name: "Sony"
                 }
               );
-              aptrinsic('set', 'globalContext', { "package": "standard" });
+              userPackage = "standard";
               break;
 
             case "Aryansh@gmail.com":
@@ -63,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   name: "Apple"
                 }
               );
-              aptrinsic('set', 'globalContext', { "package": "premium" });
+              userPackage = "premium";
               break;
 
             case "Rahul@gmail.com":
@@ -78,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   name: "Google"
                 }
               );
-              aptrinsic('set', 'globalContext', { "package": "business" });
+              userPackage = "business";
               break;
 
             case "Abhinay@gmail.com":
@@ -93,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
                   name: "Microsoft"
                 }
               );
-              aptrinsic('set', 'globalContext', { "package": "enterprise" });
+              userPackage = "enterprise";
               break;
 
             case "Travis@gmail.com":
@@ -108,37 +118,32 @@ document.addEventListener("DOMContentLoaded", () => {
                   name: "Volkswagen"
                 }
               );
-              aptrinsic('set', 'globalContext', { "package": "basic" });
+              userPackage = "basic";
               break;
 
             default:
               break;
           }
 
-          // Wait for PX commands to send before redirect
-          aptrinsic('fetchCommands', () => {
-            console.log("PX commands fetched, redirecting to dashboard...");
-            window.location.href = 'dashboard.html';
-          });
+          if(userPackage) {
+            aptrinsic('set', 'globalContext', { "package": userPackage });
+            // Track login event explicitly
+            aptrinsic('track', 'User Logged In', { email: email, package: userPackage });
+          }
+        });
 
-          // Fallback redirect if fetchCommands hangs
-          setTimeout(() => {
-            console.warn("Redirect timeout reached, redirecting anyway");
-            window.location.href = 'dashboard.html';
-          }, 3000);
-
-        } else {
-          // PX not loaded? Just redirect immediately
-          console.warn("PX SDK not defined, redirecting immediately");
+        // Redirect to dashboard after short delay for PX events to send
+        setTimeout(() => {
           window.location.href = 'dashboard.html';
-        }
+        }, 700);
+
       } else {
         alert('Please enter both email and password');
       }
     });
   }
 
-  // Your existing Data Loader Page Logic (no change)
+  // Data Loader Page Logic
   const select = document.getElementById("option");
   const display = document.getElementById("label1");
   const input = document.getElementById("i1");
@@ -161,21 +166,27 @@ document.addEventListener("DOMContentLoaded", () => {
     const selected = dropdown.querySelector('.dropdown-selected');
     const options = dropdown.querySelector('.dropdown-options');
 
-    selected.addEventListener('click', () => {
-      options.style.display = options.style.display === 'block' ? 'none' : 'block';
-    });
+    if (selected && options) {
+      // Toggle dropdown visibility
+      selected.addEventListener('click', () => {
+        options.style.display = options.style.display === 'block' ? 'none' : 'block';
+      });
 
-    options.addEventListener('click', (event) => {
-      if (event.target.classList.contains('dropdown-option')) {
-        selected.textContent = event.target.textContent;
-        options.style.display = 'none';
-      }
-    });
+      // Handle option selection
+      options.addEventListener('click', (event) => {
+        if (event.target.classList.contains('dropdown-option')) {
+          selected.textContent = event.target.textContent;
+          options.style.display = 'none';
+        }
+      });
+    }
   }
 
   // Draggable Widgets
   const draggables = document.querySelectorAll('.draggable');
   draggables?.forEach(draggable => {
+    draggable.style.position = 'absolute'; // ensure absolute for dragging
+
     draggable.addEventListener('mousedown', function(e) {
       const shiftX = e.clientX - draggable.getBoundingClientRect().left;
       const shiftY = e.clientY - draggable.getBoundingClientRect().top;
@@ -202,20 +213,17 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   });
 
-  // Initialize draggable positions on widget page
+  // Initialize draggable positions on widget page load
   window.addEventListener('DOMContentLoaded', function() {
     const draggables = document.querySelectorAll('.draggable');
     draggables?.forEach((draggable, index) => {
-      draggable.style.position = 'absolute';
       draggable.style.left = `${100 + index * 220}px`;
       draggable.style.top = `${100 + index * 120}px`;
     });
   });
 });
 
-// Logout function - reset PX
+// Logout function
 function logout(){
-  if(typeof aptrinsic !== 'undefined'){
-    aptrinsic('reset');
-  }
+  aptrinsic('reset');
 }
