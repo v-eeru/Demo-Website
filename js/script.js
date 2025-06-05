@@ -1,213 +1,157 @@
-(function(n,t,a,e,co){var i="aptrinsic";n[i]=n[i]||function(){
-    (n[i].q=n[i].q||[]).push(arguments)},n[i].p=e;n[i].c=co;
-  var r=t.createElement("script");r.async=!0,r.src=a+"?a="+e;
-  var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
-})(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-NLM0CA3YQKIW-2");
+// Aptrinsic SDK loader
+(function (n, t, a, e, co) {
+  var i = "aptrinsic";
+  n[i] = n[i] || function () {
+    (n[i].q = n[i].q || []).push(arguments)
+  };
+  n[i].p = e;
+  n[i].c = co;
+  var r = t.createElement("script");
+  r.async = true;
+  r.src = a + "?a=" + e;
+  var c = t.getElementsByTagName("script")[0];
+  c.parentNode.insertBefore(r, c);
+})(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-4YCPERINHU7C-2");
 
+document.addEventListener("DOMContentLoaded", () => {
 
+  // Login Form Handler
+  const loginForm = document.getElementById('loginForm');
+  if (loginForm) {
+    loginForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
 
+      const allowedEmails = [
+        "Veeru@gmail.com",
+        "Aryansh@gmail.com",
+        "Rahul@gmail.com",
+        "Abhinay@gmail.com",
+        "Travis@gmail.com"
+      ];
 
-  document.addEventListener("DOMContentLoaded", () => {
-    // Login Form Handler
-    const loginForm = document.getElementById('loginForm');
-    if (loginForm) {
-      loginForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-  
-        const allowedEmails = [
-          "Veeru@gmail.com",
-          "Aryansh@gmail.com",
-          "Rahul@gmail.com",
-          "Abhinay@gmail.com",
-          "Travis@gmail.com"
-        ];
-  
-        if (allowedEmails.includes(email) && password) {
-          console.log('Login attempted with:', email);
-  
-          if (typeof aptrinsic !== 'undefined') {
-            switch (email) {
-              case "Veeru@gmail.com":
-                aptrinsic("identify",
-                  {
-                    id: email.substring(0, email.indexOf('@')),
-                    email: email,
-                    firstname: "Veeru"
-                  },
-                  {
-                    id: "1123",
-                    name: "Sony"
-                  }
-                );
-                aptrinsic('set', 'globalContext', { "package": "standard" });
-                break;
-  
-              case "Aryansh@gmail.com":
-                aptrinsic("identify",
-                  {
-                    id: email.substring(0, email.indexOf('@')),
-                    email: email,
-                    firstname: "Aryansh"
-                  },
-                  {
-                    id: "1124",
-                    name: "Apple"
-                  }
-                );
-                aptrinsic('set', 'globalContext', { "package": "premium" });
-                break;
-  
-              case "Rahul@gmail.com":
-                aptrinsic("identify",
-                  {
-                    id: email.substring(0, email.indexOf('@')),
-                    email: email,
-                    firstname: "Rahul"
-                  },
-                  {
-                    id: "1125",
-                    name: "Google"
-                  }
-                );
-                aptrinsic('set', 'globalContext', { "package": "business" });
-                break;
-  
-              case "Abhinay@gmail.com":
-                aptrinsic("identify",
-                  {
-                    id: email.substring(0, email.indexOf('@')),
-                    email: email,
-                    firstname: "Abhinay"
-                  },
-                  {
-                    id: "1126",
-                    name: "Microsoft"
-                  }
-                );
-                aptrinsic('set', 'globalContext', { "package": "enterprise" });
-                break;
-  
-              case "Travis@gmail.com":
-                aptrinsic("identify",
-                  {
-                    id: email.substring(0, email.indexOf('@')),
-                    email: email,
-                    firstname: "Travis"
-                  },
-                  {
-                    id: "1127",
-                    name: "Volkswagen"
-                  }
-                );
-                aptrinsic('set', 'globalContext', { "package": "basic" });
-                break;
-  
-              default:
-                break;
-            }
+      if (allowedEmails.includes(email) && password) {
+        console.log('Login attempted with:', email);
+
+        if (typeof aptrinsic !== 'undefined') {
+          switch (email) {
+            case "Veeru@gmail.com":
+              aptrinsic("identify", { id: "Veeru", email, firstname: "Veeru" }, { id: "1123", name: "Sony" });
+              aptrinsic('set', 'globalContext', { "package": "standard" });
+              break;
+
+            case "Aryansh@gmail.com":
+              aptrinsic("identify", { id: "Aryansh", email, firstname: "Aryansh" }, { id: "1124", name: "Apple" });
+              aptrinsic('set', 'globalContext', { "package": "premium" });
+              break;
+
+            case "Rahul@gmail.com":
+              aptrinsic("identify", { id: "Rahul", email, firstname: "Rahul" }, { id: "1125", name: "Google" });
+              aptrinsic('set', 'globalContext', { "package": "business" });
+              break;
+
+            case "Abhinay@gmail.com":
+              aptrinsic("identify", { id: "Abhinay", email, firstname: "Abhinay" }, { id: "1126", name: "Microsoft" });
+              aptrinsic('set', 'globalContext', { "package": "enterprise" });
+              break;
+
+            case "Travis@gmail.com":
+              aptrinsic("identify", { id: "Travis", email, firstname: "Travis" }, { id: "1127", name: "Volkswagen" });
+              aptrinsic('set', 'globalContext', { "package": "basic" });
+              break;
+
+            default:
+              break;
           }
-  
-          // Redirect to dashboard
-          setTimeout(() => {
-            window.location.href = 'dashboard.html';
-          }, 500);
-  
-        } else {
-          alert('Please enter both email and password');
         }
-      });
-    }
-  
 
-       
+        // Redirect to dashboard
+        setTimeout(() => {
+          console.warn("Redirect timeout reached, redirecting anyway");
+          window.location.href = 'dashboard.html';
+        }, 500);
 
-    // Data Loader Page Logic
-    const select = document.getElementById("option");
-    const display = document.getElementById("label1");
-    const input = document.getElementById("i1");
+      } else {
+        alert('Please enter both email and password');
+      }
+    });
+  }
 
-    if (select && display && input) {
-      select.addEventListener("change", () => {
-        if (select.value === "Account") {
-          display.innerHTML = `Account ID:`;
-          input.placeholder = `Enter Account ID`;
-        } else if (select.value === "User") {
-          display.innerHTML = `User ID:`;
-          input.placeholder = `Enter User ID`;
-        }
-      });
-    }
+  // Data Loader Page Logic
+  const select = document.getElementById("option");
+  const display = document.getElementById("label1");
+  const input = document.getElementById("i1");
 
-    // Dropdown Logic
-    const dropdown = document.querySelector('.dropdown');
-    const selected = dropdown.querySelector('.dropdown-selected');
-    const options = dropdown.querySelector('.dropdown-options');
+  if (select && display && input) {
+    select.addEventListener("change", () => {
+      if (select.value === "Account") {
+        display.innerHTML = `Account ID:`;
+        input.placeholder = `Enter Account ID`;
+      } else if (select.value === "User") {
+        display.innerHTML = `User ID:`;
+        input.placeholder = `Enter User ID`;
+      }
+    });
+  }
 
-    // Toggle dropdown visibility
+  // Dropdown Logic
+  const dropdown = document.querySelector('.dropdown');
+  const selected = dropdown?.querySelector('.dropdown-selected');
+  const options = dropdown?.querySelector('.dropdown-options');
+
+  if (dropdown && selected && options) {
     selected.addEventListener('click', () => {
       options.style.display = options.style.display === 'block' ? 'none' : 'block';
     });
 
-    // Handle option selection
     options.addEventListener('click', (event) => {
       if (event.target.classList.contains('dropdown-option')) {
         selected.textContent = event.target.textContent;
         options.style.display = 'none';
       }
     });
+  }
 
-    // Draggable Widgets
-    const draggables = document.querySelectorAll('.draggable');
-    draggables?.forEach(draggable => {
-      draggable.addEventListener('mousedown', function(e) {
-        const shiftX = e.clientX - draggable.getBoundingClientRect().left;
-        const shiftY = e.clientY - draggable.getBoundingClientRect().top;
+  // Draggable Widgets
+  const draggables = document.querySelectorAll('.draggable');
+  draggables?.forEach(draggable => {
+    draggable.addEventListener('mousedown', function (e) {
+      const shiftX = e.clientX - draggable.getBoundingClientRect().left;
+      const shiftY = e.clientY - draggable.getBoundingClientRect().top;
 
-        function moveAt(pageX, pageY) {
-          draggable.style.left = pageX - shiftX + 'px';
-          draggable.style.top = pageY - shiftY + 'px';
-        }
+      function moveAt(pageX, pageY) {
+        draggable.style.left = pageX - shiftX + 'px';
+        draggable.style.top = pageY - shiftY + 'px';
+      }
 
-        function onMouseMove(e) {
-          moveAt(e.pageX, e.pageY);
-        }
+      function onMouseMove(e) {
+        moveAt(e.pageX, e.pageY);
+      }
 
-        document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mousemove', onMouseMove);
 
-        draggable.onmouseup = function() {
-          document.removeEventListener('mousemove', onMouseMove);
-          draggable.onmouseup = null;
-        };
-      });
-
-      draggable.ondragstart = function() {
-        return false;
+      draggable.onmouseup = function () {
+        document.removeEventListener('mousemove', onMouseMove);
+        draggable.onmouseup = null;
       };
     });
 
-    // Initialize draggable positions on widget page
-    window.addEventListener('DOMContentLoaded', function() {
-      const draggables = document.querySelectorAll('.draggable');
-      draggables?.forEach((draggable, index) => {
-        draggable.style.position = 'absolute';
-        draggable.style.left = `${100 + index * 220}px`;
-        draggable.style.top = `${100 + index * 120}px`;
-      });
-    });
-    
+    draggable.ondragstart = function () {
+      return false;
+    };
   });
 
-  function logout(){
-   
-        aptrinsic('reset');
-    
-  
-}
- 
-    // Login Form Handler
-  
-    // (Keep your existing code for dropdowns, drag, etc. here — no change needed)
+  // Initialize draggable positions
+  const draggableInit = document.querySelectorAll('.draggable');
+  draggableInit?.forEach((draggable, index) => {
+    draggable.style.position = 'absolute';
+    draggable.style.left = `${100 + index * 220}px`;
+    draggable.style.top = `${100 + index * 120}px`;
+  });
+});
 
-  
+// Logout handler
+function logout() {
+  aptrinsic('reset');
+}
