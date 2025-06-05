@@ -197,7 +197,9 @@
       });
     });
   });
-
+function logout(){
+aptrinsic('reset');
+}
   
     // Login Form Handler
   
