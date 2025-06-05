@@ -196,11 +196,16 @@
         draggable.style.top = `${100 + index * 120}px`;
       });
     });
+    
   });
-function logout(){
-aptrinsic('reset');
+
+  function logout(){
+   
+        aptrinsic('reset');
+    
+
 }
-  
+ 
     // Login Form Handler
   
     // (Keep your existing code for dropdowns, drag, etc. here — no change needed)
