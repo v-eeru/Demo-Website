@@ -4,6 +4,8 @@
     var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
   })(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-8BLCMRAZRTFW-2");
 
+
+
 document.addEventListener("DOMContentLoaded", () => {
 
   // Login Form Handler
@@ -28,35 +30,37 @@ document.addEventListener("DOMContentLoaded", () => {
         if (typeof aptrinsic !== 'undefined') {
           switch (email) {
             case "Veeru@gmail.com":
-              aptrinsic("identify", { id: "Veeru", email, firstname: "Veeru", role:"Support" }, 
-                        
-                        { id: "1123", name: "Sony" });
+              aptrinsic("identify",
+                 { id: "Veeru", email, firstname: "Veeru", role: "Admin" },
+                 { id: "1123", name: "Sony" });
               aptrinsic('set', 'globalContext', { "package": "standard" });
               break;
 
             case "Aryansh@gmail.com":
-              aptrinsic("identify", { id: "Aryansh", email, firstname: "Aryansh", role:"Tester" }, 
+              aptrinsic("identify",
+                 { id: "Aryansh", email, firstname: "Aryansh" , role: "User" }, 
+                 { id: "1124", name: "Apple" });
               aptrinsic('set', 'globalContext', { "package": "premium" });
               break;
 
             case "Rahul@gmail.com":
-              aptrinsic("identify", { id: "Rahul", email, firstname: "Rahul", role:"Cloud" },
-                        
-                        { id: "1125", name: "Google" });
+              aptrinsic("identify", 
+                { id: "Rahul", email, firstname: "Rahul", role: "Support" },
+                 { id: "1125", name: "Google" });
               aptrinsic('set', 'globalContext', { "package": "business" });
               break;
 
             case "Abhinay@gmail.com":
-              aptrinsic("identify", { id: "Abhinay", email, firstname: "Abhinay" ,role:"SecOps"}, 
-                  
-                        { id: "1126", name: "Microsoft" });
+              aptrinsic("identify",
+                 { id: "Abhinay", email, firstname: "Abhinay" ,role: "Manager" },
+                  { id: "1126", name: "Microsoft" });
               aptrinsic('set', 'globalContext', { "package": "enterprise" });
               break;
 
             case "Travis@gmail.com":
-              aptrinsic("identify", { id: "Travis", email, firstname: "Travis", role:"Developer" },
-                       
-                        { id: "1127", name: "Volkswagen" });
+              aptrinsic("identify",
+                 { id: "Travis", email, firstname: "Travis" ,role: "Developer" }, 
+                 { id: "1127", name: "Volkswagen" });
               aptrinsic('set', 'globalContext', { "package": "basic" });
               break;
 
@@ -67,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Redirect to dashboard
         setTimeout(() => {
-          console.warn("Redirect timeout reached, redirecting anyway");
+          console.warn("Timeout for xms ");
           window.location.href = 'dashboard.html';
         }, 500);
 
