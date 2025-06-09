@@ -28,34 +28,34 @@ document.addEventListener("DOMContentLoaded", () => {
         if (typeof aptrinsic !== 'undefined') {
           switch (email) {
             case "Veeru@gmail.com":
-              aptrinsic("identify", { id: "Veeru", email, firstname: "Veeru" }, 
+              aptrinsic("identify", { id: "Veeru", email, firstname: "Veeru", Role:"Support" }, 
                         {XYZ_Attribute_1:"demo1"},
                         { id: "1123", name: "Sony" });
               aptrinsic('set', 'globalContext', { "package": "standard" });
               break;
 
             case "Aryansh@gmail.com":
-              aptrinsic("identify", { id: "Aryansh", email, firstname: "Aryansh" }, {XYZ_Attribute_1:"demo1"},
+              aptrinsic("identify", { id: "Aryansh", email, firstname: "Aryansh", Role:"Tester" }, {XYZ_Attribute_1:"demo1"},
                         { id: "1124", name: "Apple" });
               aptrinsic('set', 'globalContext', { "package": "premium" });
               break;
 
             case "Rahul@gmail.com":
-              aptrinsic("identify", { id: "Rahul", email, firstname: "Rahul" },
+              aptrinsic("identify", { id: "Rahul", email, firstname: "Rahul", Role:"Cloud" },
                         {XYZ_Attribute_1:"demo1"},
                         { id: "1125", name: "Google" });
               aptrinsic('set', 'globalContext', { "package": "business" });
               break;
 
             case "Abhinay@gmail.com":
-              aptrinsic("identify", { id: "Abhinay", email, firstname: "Abhinay" }, 
+              aptrinsic("identify", { id: "Abhinay", email, firstname: "Abhinay" ,Role:"SecOps"}, 
                         {XYZ_Attribute_1:"demo1"},
                         { id: "1126", name: "Microsoft" });
               aptrinsic('set', 'globalContext', { "package": "enterprise" });
               break;
 
             case "Travis@gmail.com":
-              aptrinsic("identify", { id: "Travis", email, firstname: "Travis" },
+              aptrinsic("identify", { id: "Travis", email, firstname: "Travis",Role:"Developer" },
                         {XYZ_Attribute_1:"demo1"},
                         { id: "1127", name: "Volkswagen" });
               aptrinsic('set', 'globalContext', { "package": "basic" });
