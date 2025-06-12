@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (typeof aptrinsic !== 'undefined') {
           switch (email) {
             case "Veeru@gmail.com":
-              aptrinsic("identify", { id: "Veeru", email, firstName: "Veeru",role:"Admin"},{Preferedlanguage:"hi-IN"},{ id: "1123", name: "Sony" },{custom1:"first" });
+              aptrinsic("identify", { id: "Veeru", email, firstName: "Veeru",role:"Admin", Preferedlanguage:"hi-IN"},{ id: "1123", name: "Sony" },{custom1:"first" });
               aptrinsic('set', 'globalContext', { "package": "standard" });
               break;
 
