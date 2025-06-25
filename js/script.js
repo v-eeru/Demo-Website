@@ -1,8 +1,17 @@
- (function(n,t,a,e,co){var i="aptrinsic";n[i]=n[i]||function(){
-      (n[i].q=n[i].q||[]).push(arguments)},n[i].p=e;n[i].c=co;
-    var r=t.createElement("script");r.async=!0,r.src=a+"?a="+e;
-    var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
-  })(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-NLM0CA3YQKIW-2");
+// Aptrinsic SDK loader
+(function (n, t, a, e, co) {
+  var i = "aptrinsic";
+  n[i] = n[i] || function () {
+    (n[i].q = n[i].q || []).push(arguments)
+  };
+  n[i].p = e;
+  n[i].c = co;
+  var r = t.createElement("script");
+  r.async = true;
+  r.src = a + "?a=" + e;
+  var c = t.getElementsByTagName("script")[0];
+  c.parentNode.insertBefore(r, c);
+})(window, document, "https://web-sdk.aptrinsic.com/api/aptrinsic.js", "AP-4YCPERINHU7C-2");
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -28,27 +37,37 @@ document.addEventListener("DOMContentLoaded", () => {
         if (typeof aptrinsic !== 'undefined') {
           switch (email) {
             case "Veeru@gmail.com":
-              aptrinsic("identify", { id: "Veeru", email, firstName: "Veeru",role:"Admin", Preferedlanguage:"hi-IN"},{ id: "1123", name: "Sony" },{custom1:"first" });
+              aptrinsic("identify",
+                 { id: "Veeru", email, firstname: "Veeru", role: "Admin" },
+                 { id: "1123", name: "Sony" });
               aptrinsic('set', 'globalContext', { "package": "standard" });
               break;
 
             case "Aryansh@gmail.com":
-              aptrinsic("identify", { id: "Aryansh", email, firstName: "Aryansh",role:"Admin", Preferedlanguage:"ja-JP"}, { id: "1124", name: "Apple" },{custom1:"first" });
+              aptrinsic("identify",
+                 { id: "Aryansh", email, firstname: "Aryansh" , role: "User" }, 
+                 { id: "1124", name: "Apple" });
               aptrinsic('set', 'globalContext', { "package": "premium" });
               break;
 
             case "Rahul@gmail.com":
-              aptrinsic("identify", { id: "Rahul", email, firstName: "Rahul" ,role:"Admin"},{ id: "1125", name: "Google" },{custom1:"first" });
+              aptrinsic("identify", 
+                { id: "Rahul", email, firstname: "Rahul", role: "Support" },
+                 { id: "1125", name: "Google" });
               aptrinsic('set', 'globalContext', { "package": "business" });
               break;
 
             case "Abhinay@gmail.com":
-              aptrinsic("identify", { id: "Abhinay", email, firstName: "Abhinay",role:"Admin"}, { id: "1126", name: "Microsoft" },{custom1:"first" });
+              aptrinsic("identify",
+                 { id: "Abhinay", email, firstname: "Abhinay" ,role: "Manager" },
+                  { id: "1126", name: "Microsoft" });
               aptrinsic('set', 'globalContext', { "package": "enterprise" });
               break;
 
             case "Travis@gmail.com":
-              aptrinsic("identify", { id: "Travis", email, firstName: "Travis",role:"Admin" }, { id: "1127", name: "Volkswagen" },{custom1:"first" });
+              aptrinsic("identify",
+                 { id: "Travis", email, firstname: "Travis" ,role: "Developer" }, 
+                 { id: "1127", name: "Volkswagen" });
               aptrinsic('set', 'globalContext', { "package": "basic" });
               break;
 
@@ -59,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Redirect to dashboard
         setTimeout(() => {
-          console.warn("Redirect timeout reached, redirecting anyway");
+          console.warn("Timeout for xms ");
           window.location.href = 'dashboard.html';
         }, 500);
 
@@ -68,6 +87,20 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+//payment logic
+  const paymentForm = document.getElementById('paymentForm');
+  paymentForm?.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const cardNumber = document.getElementById('cardNumber').value;
+    const expireyDate = document.getElementById('expireyDate').value;
+    const cvv = document.getElementById('cvv').value; 
+    aptrinsic('track', 'paymentSubmitted', {
+      cardNumber: cardNumber,
+      expireyDate: expireyDate,
+      cvv: cvv
+    });
+  })
 
   // Data Loader Page Logic
   const select = document.getElementById("option");
@@ -85,22 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-//payment page logic
-const form=document.getElementById("paymentForm");
-form.addEventListener('submit',function(e){
-e.preventDefault();
-const cardNumber= document.getElementById("cardNumber").value;
-const cardExpirey= document.getElementById("expireyDate").value;
-const cvv= document.getElementById("cvv").value;
 
-aptrinsic('track',paymentSubmitted,{
-  cardNumber: cardNumber,
-  cardExpirey: cardExpirey,
-  cvv: cvv
-})
-
-
-})
   // Dropdown Logic
   const dropdown = document.querySelector('.dropdown');
   const selected = dropdown?.querySelector('.dropdown-selected');
