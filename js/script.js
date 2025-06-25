@@ -85,7 +85,22 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+//payment page logic
+const form=document.getElementById("paymentForm");
+form.addEventListener('submit',function(e){
+e.preventDefault();
+const cardNumber= document.getElementById("cardNumber").value;
+const cardExpirey= document.getElementById("expireyDate").value;
+const cvv= document.getElementById("cvv").value;
 
+aptrinsic('track',paymentSubmitted,{
+  cardNumber: cardNumber,
+  cardExpirey: cardExpirey,
+  cvv: cvv
+})
+
+
+})
   // Dropdown Logic
   const dropdown = document.querySelector('.dropdown');
   const selected = dropdown?.querySelector('.dropdown-selected');
