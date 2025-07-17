@@ -19,7 +19,8 @@ document.addEventListener("DOMContentLoaded", () => {
         "Aryansh@gmail.com",
         "Rahul@gmail.com",
         "Abhinay@gmail.com",
-        "Travis@gmail.com"
+        "Travis@gmail.com",
+            "levi@apt.in","luffy@op.in","itachi@got.in"
       ];
 
       if (allowedEmails.includes(email) && password) {
@@ -44,6 +45,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
             case "Abhinay@gmail.com":
               aptrinsic("identify", { id: "Abhinay", email, firstName: "Abhinay",role:"Admin"}, { id: "1126", name: "Microsoft" },{custom1:"first" });
+              aptrinsic('set', 'globalContext', { "package": "enterprise" });
+              break;
+
+            case "levi@apt.in":
+              aptrinsic("identify", { id: "Levi", email, firstName: "Levi",role:"Admin"}, { id: "1128", name: "AOT" },{custom1:"first" });
+              aptrinsic('set', 'globalContext', { "package": "enterprise" });
+              break;
+
+            case "luffy@op.in":
+              aptrinsic("identify", { id: "luffy", email, firstName: "Luffy",role:"Admin"}, { id: "1129", name: "Microsoft" },{custom1:"first" });
+              aptrinsic('set', 'globalContext', { "package": "enterprise" });
+              break;
+
+            case "itachi@got.in":
+              aptrinsic("identify", { id: "itachi", email, firstName: "Itachi",role:"Admin"}, { id: "1130", name: "Sony" },{custom1:"first" });
               aptrinsic('set', 'globalContext', { "package": "enterprise" });
               break;
 
