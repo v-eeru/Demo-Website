@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
       let pageType = "";
-  if (location.pathname.includes("dashboard.html")) pageType = "dashboard";
-  else if (location.pathname.includes("contact.html")) pageType = "contact";
+  if (location.pathname.includes("dashboard.html")) pagetype = "dashboard";
+  else if (location.pathname.includes("contact.html")) pagetype = "contact";
   // Login Form Handler
   const loginForm = document.getElementById('loginForm');
   if (loginForm) {
