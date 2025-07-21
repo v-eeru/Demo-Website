@@ -6,6 +6,10 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+
+      let pageType = "";
+  if (location.pathname.includes("dashboard.html")) pageType = "dashboard";
+  else if (location.pathname.includes("contact.html")) pageType = "contact";
   // Login Form Handler
   const loginForm = document.getElementById('loginForm');
   if (loginForm) {
@@ -29,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (typeof aptrinsic !== 'undefined') {
           switch (email) {
             case "Veeru@gmail.com":
-              aptrinsic("identify", { id: "Veeru", email, firstName: "Veeru",role:"Admin", Preferedlanguage:"hi-IN"},{ id: "1123", name: "Sony" },{custom1:"first" });
+              aptrinsic("identify", { id: "Veeru", email, firstName: "Veeru",role:"Admin", Preferedlanguage:"hi-IN"},{ id: "1123", name: "Sony" },{custom1:"first" },{pageType:pageType});
               aptrinsic('set', 'globalContext', { "package": "standard" });
               break;
 
