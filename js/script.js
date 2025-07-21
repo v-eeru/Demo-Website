@@ -7,7 +7,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
 
-      let pageType = "";
+      var pagetype = "";
   if (location.pathname.includes("dashboard.html")) pagetype = "dashboard";
   else if (location.pathname.includes("contact.html")) pagetype = "contact";
   // Login Form Handler
