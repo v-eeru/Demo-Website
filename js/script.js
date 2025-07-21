@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             case "Aryansh@gmail.com":
               aptrinsic("identify", { id: "Aryansh", email, firstName: "Aryansh",role:"Admin", Preferedlanguage:"ja-JP"}, { id: "1124", name: "Apple" },{custom1:"first" });
-              aptrinsic('set', 'globalContext', { "package": "premium", pageType:pageType });
+              aptrinsic('set', 'globalContext', { "package": "premium", pageType:pagetype });
               break;
 
             case "Rahul@gmail.com":
