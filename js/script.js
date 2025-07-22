@@ -7,7 +7,7 @@ var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
 document.addEventListener("DOMContentLoaded", function () {
 var currentUrl = window.location.href;
   console.log(currentUrl)
-  
+
   aptrinsic("set", "globalContext", {  "pageType":currentUrl});
 
 
