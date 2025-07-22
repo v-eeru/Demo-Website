@@ -8,9 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
   var fullUrl = window.location.href;
   console.log(fullUrl);
   
-  var currentPageType = fullUrl.includes("contact.html") ? "contact" : "other";
+ // var currentPageType = fullUrl.includes("contact.html") ? "contact" : "other";
   
-  aptrinsic("set", "globalContext", {  "pageType":currentPageType});
+  aptrinsic("set", "globalContext", {  "pageType": fullUrl});
 
 
 });
