@@ -6,10 +6,21 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+      
+//include exclude urls
+      var pageType = "default";
 
-      var pagetype = "";
-  if (location.pathname.includes("dashboard.html")) pagetype = "dashboard";
-  else if (location.pathname.includes("contact.html")) pagetype = "contact";
+// Identify specific pages
+if (location.pathname.includes("contact.html")) {
+  pageType = "contact";
+} else {
+  pageType = "allExceptContact"; // fallback for all other pages
+}
+
+// Global context set with correct pageType
+aptrinsic('set', 'globalContext', { pageType: pagetype });
+
+    
   // Login Form Handler
   const loginForm = document.getElementById('loginForm');
   if (loginForm) {
@@ -39,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             case "Aryansh@gmail.com":
               aptrinsic("identify", { id: "Aryansh", email, firstName: "Aryansh",role:"Admin", Preferedlanguage:"ja-JP"}, { id: "1124", name: "Apple" },{custom1:"first" });
-              aptrinsic('set', 'globalContext', { "package": "premium", pageType:pagetype });
+              aptrinsic('set', 'globalContext', { "package": "premium" });
               break;
 
             case "Rahul@gmail.com":
