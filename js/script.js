@@ -4,20 +4,19 @@
     var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
   })(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-CKALAZKJJKPI-2");
 
+document.addEventListener("DOMContentLoaded", function () {
+  var currentUrl = window.location.href;
+      console.log(currentUrl)
+Alert("fjkahaff")
 
+  aptrinsic('set', 'user', { "pageType", currentUrl });
+});
       
 
 
 document.addEventListener("DOMContentLoaded", () => {
 
-var pageType = "default";
 
-// Identify specific pages
-if (location.pathname.includes("contact.html")) {
-  pageType = "contact";
-} else {
-  pageType = "allExceptContact"; // fallback for all other pages
-}
 
     
   // Login Form Handler
@@ -43,7 +42,7 @@ if (location.pathname.includes("contact.html")) {
         if (typeof aptrinsic !== 'undefined') {
           switch (email) {
             case "Veeru@gmail.com":
-              aptrinsic("identify", { id: "Veeru", email, firstName: "Veeru",role:"Admin", Preferedlanguage:"hi-IN", pageType:pageType},{ id: "1123", name: "Sony" },{custom1:"first" });
+              aptrinsic("identify", { id: "Veeru", email, firstName: "Veeru",role:"Admin", Preferedlanguage:"hi-IN"},{ id: "1123", name: "Sony" },{custom1:"first" });
               aptrinsic('set', 'globalContext', { "package": "standard" });
               break;
 
