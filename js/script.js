@@ -4,11 +4,13 @@
     var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
   })(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-CKALAZKJJKPI-2");
 
-document.addEventListener("DOMContentLoaded", () => {
 
       
-//include exclude urls
-      var pageType = "default";
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+var pageType = "default";
 
 // Identify specific pages
 if (location.pathname.includes("contact.html")) {
@@ -16,9 +18,6 @@ if (location.pathname.includes("contact.html")) {
 } else {
   pageType = "allExceptContact"; // fallback for all other pages
 }
-
-// Global context set with correct pageType
-aptrinsic('set', 'globalContext', { pageType: pagetype });
 
     
   // Login Form Handler
@@ -45,7 +44,7 @@ aptrinsic('set', 'globalContext', { pageType: pagetype });
           switch (email) {
             case "Veeru@gmail.com":
               aptrinsic("identify", { id: "Veeru", email, firstName: "Veeru",role:"Admin", Preferedlanguage:"hi-IN"},{ id: "1123", name: "Sony" },{custom1:"first" });
-              aptrinsic('set', 'globalContext', { "package": "standard" });
+              aptrinsic('set', 'globalContext', { "package": "standard", pageType: pageType });
               break;
 
             case "Aryansh@gmail.com":
