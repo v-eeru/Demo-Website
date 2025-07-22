@@ -5,10 +5,12 @@ var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
 })(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-CKALAZKJJKPI-2");
 
 document.addEventListener("DOMContentLoaded", function () {
-var currentUrl = window.location.href;
-  console.log(currentUrl)
-
-  aptrinsic("set", "globalContext", {  "pageType": currentUrl });
+  var fullUrl = window.location.href;
+  console.log(fullUrl);
+  
+  var currentPageType = fullUrl.includes("contact.html") ? "contact" : "other";
+  
+  aptrinsic("set", "globalContext", {  "pageType":currentPageType});
 
 
 });
