@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log(currentUrl)
 Alert("fjkahaff")
 
-  aptrinsic('set', 'user', { "pageType":currentUrl });
+  aptrinsic('set', 'user', { "pageType": currentUrl });
 });
       
 
