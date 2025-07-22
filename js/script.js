@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 var currentUrl = window.location.href;
   console.log(currentUrl)
   
-  aptrinsic("set", "globalContext", {  "pageType":"currentUrl"});
+  aptrinsic("set", "globalContext", {  "pageType":currentUrl});
 
 
 });
