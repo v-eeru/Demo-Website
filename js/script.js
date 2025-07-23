@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
   
  var currentPageType = fullUrl.includes("contact.html") ? "contact" : "other";
   
-  aptrinsic("set", "globalContext", {  "pageType": fullUrl});
+  aptrinsic("set", "globalContext", {  "pageType": currentPageType });
 
 
 });
