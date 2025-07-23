@@ -6,26 +6,26 @@ var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
 })(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-CKALAZKJJKPI-2");
 
 
-
 const fullUrl = window.location.href;
 const currentPageType = fullUrl.includes("contact.html") ? "contact" : "other";
 
-// Wait for Aptrinsic SDK to be available and loaded before setting globalContext
+// Wait for Aptrinsic SDK to load and set a custom user attribute
 (function waitForAptrinsicReady() {
   if (typeof aptrinsic === "function" && aptrinsic.q) {
-    console.log("Setting globalContext with pageType:", currentPageType);
-    aptrinsic("set", "globalContext", { pageType: currentPageType });
+    console.log("Setting user attribute: pageType =", currentPageType);
+    aptrinsic("set", "user", { pageType: currentPageType });
   } else {
-    setTimeout(waitForAptrinsicReady, 100); // wait and retry
+    setTimeout(waitForAptrinsicReady, 100); // Retry until SDK is ready
   }
 })();
 
 
-  
 
 
 document.addEventListener("DOMContentLoaded", () => {
 
+  const fullUrl = window.location.href;
+  const currentpageType = fullUrl.includes("contact.html") ? "contact" : "other";
 
 
 
@@ -52,7 +52,7 @@ loginForm.addEventListener('submit', function (e) {
     if (typeof aptrinsic !== 'undefined') {
       switch (email) {
         case "Veeru@gmail.com":
-          aptrinsic("identify", { id: "Veeru", email, firstName: "Veeru",role:"Admin", Preferedlanguage:"hi-IN"},{ id: "1123", name: "Sony" },{custom1:"first" });
+          aptrinsic("identify", { id: "Veeru", email, firstName: "Veeru",role:"Admin"},{ id: "1123", name: "Sony" },{custom1:"first" });
           aptrinsic('set', 'globalContext', { "package": "standard" });
           break;
 
