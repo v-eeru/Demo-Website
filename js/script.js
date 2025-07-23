@@ -1,13 +1,16 @@
-document.addEventListener("DOMContentLoaded", function () {
-  var fullUrl = window.location.href;
-  console.log(fullUrl);
-  
- var currentPageType = fullUrl.includes("contact.html") ? "contact" : "other";
-  
-  aptrinsic("set", "globalContext", {  "pageType": currentPageType });
+// Set the pageType based on URL before Aptrinsic runs
+const fullUrl = window.location.href;
+const currentPageType = fullUrl.includes("contact.html") ? "contact" : "other";
 
+// Wait for Aptrinsic to be ready, then set globalContext
+(function waitForAptrinsicReady() {
+  if (typeof aptrinsic === "function") {
+    aptrinsic("set", "globalContext", { pageType: currentPageType });
+  } else {
+    setTimeout(waitForAptrinsicReady, 50);
+  }
+})();
 
-});
 
 
 
