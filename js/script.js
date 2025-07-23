@@ -6,26 +6,23 @@ var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
 })(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-CKALAZKJJKPI-2");
 
 
-const fullUrl = window.location.href;
-const currentPageType = fullUrl.includes("contact.html") ? "contact" : "other";
+document.addEventListener("DOMContentLoaded", function () {
+  const fullUrl = window.location.href;
+  const currentPageType = fullUrl.includes("contact.html") ? "contact" : "other";
 
-// Wait for Aptrinsic SDK to load and set a custom user attribute
-(function waitForAptrinsicReady() {
-  if (typeof aptrinsic === "function" && aptrinsic.q) {
-    console.log("Setting user attribute: pageType =", currentPageType);
+  if (typeof aptrinsic === "function") {
     aptrinsic("set", "user", { pageType: currentPageType });
-  } else {
-    setTimeout(waitForAptrinsicReady, 100); // Retry until SDK is ready
+    console.log("Aptrinsic user attribute set with pageType:", currentPageType);
   }
-})();
+});
+
 
 
 
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  const fullUrl = window.location.href;
-  const currentpageType = fullUrl.includes("contact.html") ? "contact" : "other";
+
 
 
 
