@@ -1,15 +1,16 @@
-// Set the pageType based on URL before Aptrinsic runs
 const fullUrl = window.location.href;
 const currentPageType = fullUrl.includes("contact.html") ? "contact" : "other";
 
-// Wait for Aptrinsic to be ready, then set globalContext
+// Wait for Aptrinsic SDK to be available and loaded before setting globalContext
 (function waitForAptrinsicReady() {
-  if (typeof aptrinsic === "function") {
+  if (typeof aptrinsic === "function" && aptrinsic.q) {
+    console.log("Setting globalContext with pageType:", currentPageType);
     aptrinsic("set", "globalContext", { pageType: currentPageType });
   } else {
-    setTimeout(waitForAptrinsicReady, 50);
+    setTimeout(waitForAptrinsicReady, 100); // wait and retry
   }
 })();
+
 
 
 
