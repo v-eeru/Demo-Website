@@ -40,7 +40,7 @@ loginForm.addEventListener('submit', function (e) {
     "Rahul@gmail.com",
     "Abhinay@gmail.com",
     "Travis@gmail.com",
-        "levi@apt.in","luffy@op.in","itachi@got.in"
+        "levi@apt.in","luffy@op.in","itachi@got.in", "veerupotpally2003@gmail.com"
   ];
 
   if (allowedEmails.includes(email) && password) {
