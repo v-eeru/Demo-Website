@@ -87,6 +87,10 @@ loginForm.addEventListener('submit', function (e) {
           aptrinsic("identify", { id: "Travis", email, firstName: "Travis",role:"Admin" }, { id: "1127", name: "Volkswagen" },{custom1:"first" });
           aptrinsic('set', 'globalContext', { "package": "basic" });
           break;
+        case "veerupotpally2003@gmail.com":
+          aptrinsic("identify", { id: "Veerendra", email, firstName: "Veerendra",role:"Admin" }, { id: "1131", name: "Suzuki" },{custom1:"first" });
+          aptrinsic('set', 'globalContext', { "package": "basic" });
+          break;
 
         default:
           break;
