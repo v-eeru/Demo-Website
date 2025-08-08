@@ -113,18 +113,7 @@ loginForm.addEventListener('submit', function (e) {
 });
 }
 //payment logic
-const paymentForm = document.getElementById('paymentForm');
-paymentForm?.addEventListener('submit', function (e) {
-e.preventDefault();
-const cardNumber = document.getElementById('cardNumber').value;
-const expireyDate = document.getElementById('expireyDate').value;
-const cvv = document.getElementById('cvv').value; 
-aptrinsic('track', 'paymentSubmitted', {
-  cardNumber: cardNumber,
-  expireyDate: expireyDate,
-  cvv: cvv
-});
-})
+
 // Data Loader Page Logic
 const select = document.getElementById("option");
 const display = document.getElementById("label1");
