@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframe Child Page</title>
+</head>
+<body>
+    <h2>Child Iframe Application</h2>
+    <p>This is inside an iframe. Test element below:</p>
+    
+    <!-- Test input -->
+    <input id="currencyPairTxt" type="text" placeholder="Enter Currency Pair">
+
+    <!-- PX tracking tag with iframe mode -->
+    <script>
+    (function(n,t,a,e,co){
+        var i="aptrinsic";
+        n[i]=n[i]||function(){
+            (n[i].q=n[i].q||[]).push(arguments)
+        },
+        n[i].p=e;
+        n[i].c=co;
+        var r=t.createElement("script");
+        r.async=!0;
+        r.src=a+"?a="+e;
+        var c=t.getElementsByTagName("script")[0];
+        c.parentNode.insertBefore(r,c)
+    })(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-CKALAZKJJKPI-2", { "iframeModeEnabled": false });
+    </script>
+</body>
+</html>
