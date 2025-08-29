@@ -1,1 +1,54 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gainsight PX Data Loader</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="dashboard.html">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="widget.html">Widget</a></li>
+            <li><a href="payment.html">Payment</a></li>
+            <li><a href="dataloader.html">DataLoader</a></li>
+            <li><a href="index.html" onclick="logout()">Logout</a></li>
+        </ul>
+    </nav>
+    <div class="container" id="data-container">
+        <h1>Gainsight PX Data Loader</h1>
+        <form id="dataLoaderForm">
+            <label>API Key:</label>
+            <input type="text" placeholder="Enter API Key">
+            <label>Update Data For:</label>
+            <select id="option">
+                <option value="Account">Account</option>
+                <option value="User">User</option>
+            </select>
+            <label id="label1">Account ID:</label>
+            <input id="i1" type="text" placeholder="Enter Account ID">
+            <label>Select Operation:</label>
+            <select>
+                <option>Read</option>
+                <option>Update</option>
+                <option>Delete</option>
+                <option>Bulk Update</option>
+                <option>Bulk Delete</option>
+            </select>
+            <button type="submit">Execute</button>
+        </form>
+        <div class="response-section">
+            <h3>Execution Response:</h3>
+            <div id="executionResponse"></div>
+            <h3>File Content:</h3>
+            <div id="fileContent"></div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+    <footer class="f1" >©2025 small website | Designed by Veerendra Kumar</footer>
+</body>
+</html>
