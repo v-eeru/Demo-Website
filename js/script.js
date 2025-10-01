@@ -15,15 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-
-
-
 document.addEventListener("DOMContentLoaded", () => {
-
-
-
-
-
 // Login Form Handler
 const loginForm = document.getElementById('loginForm');
 if (loginForm) {
@@ -175,7 +167,6 @@ draggable.ondragstart = function () {
   return false;
 };
 });
-
 // Initialize draggable positions
 const draggableInit = document.querySelectorAll('.draggable');
 draggableInit?.forEach((draggable, index) => {
