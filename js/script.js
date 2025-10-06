@@ -38,42 +38,42 @@ loginForm.addEventListener('submit', function (e) {
 
     if (typeof aptrinsic !== 'undefined') {
       switch (email) {
-        case "Veeru@gmail.com":
+        case "Veeru123@gmail.com":
           aptrinsic("identify", { id: "1a10", email, firstName: "Veeru",role:"Admin"},{ id: "11120", name: "Sony" },{custom1:"first" });
           aptrinsic('set', 'globalContext', { "package": "standard" });
           break;
 
-        case "Aryansh@gmail.com":
+        case "Aryansh123@gmail.com":
           aptrinsic("identify", { id: "1a11", email, firstName: "Aryansh",role:"Admin", Preferedlanguage:"ja-JP"}, { id: "11121", name: "Apple" },{custom1:"first" });
           aptrinsic('set', 'globalContext', { "package": "premium" });
           break;
 
-        case "Rahul@gmail.com":
+        case "Rahul123@gmail.com":
           aptrinsic("identify", { id: "1a12", email, firstName: "Rahul" ,role:"Admin"},{ id: "11122", name: "Google" },{custom1:"first" });
           aptrinsic('set', 'globalContext', { "package": "business" });
           break;
 
-        case "Abhinay@gmail.com":
+        case "Abhinay123@gmail.com":
           aptrinsic("identify", { id: "1a13", email, firstName: "Abhinay",role:"Admin"}, { id: "11123", name: "Microsoft" },{custom1:"first" });
           aptrinsic('set', 'globalContext', { "package": "enterprise" });
           break;
 
-        case "levi@apt.in":
+        case "levi123@apt.in":
           aptrinsic("identify", { id: "1a14", email, firstName: "Levi",role:"Admin"}, { id: "11124", name: "AOT" },{custom1:"first" });
           aptrinsic('set', 'globalContext', { "package": "enterprise" });
           break;
 
-        case "luffy@op.in":
+        case "luffy123@op.in":
           aptrinsic("identify", { id: "1a15", email, firstName: "Luffy",role:"Admin"}, { id: "11125", name: "Microsoft" },{custom1:"first" });
           aptrinsic('set', 'globalContext', { "package": "enterprise" });
           break;
 
-        case "itachi@got.in":
+        case "itachi123@got.in":
           aptrinsic("identify", { id: "1a16", email, firstName: "Itachi",role:"Admin"}, { id: "11126", name: "Sony" },{custom1:"first" });
           aptrinsic('set', 'globalContext', { "package": "enterprise" });
           break;
 
-        case "Travis@gmail.com":
+        case "Travis123@gmail.com":
           aptrinsic("identify", { id: "1a17", email, firstName: "Travis",role:"Admin" }, { id: "11127", name: "Volkswagen" },{custom1:"first" });
           aptrinsic('set', 'globalContext', { "package": "basic" });
           break;
