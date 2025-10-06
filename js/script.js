@@ -4,7 +4,7 @@
     var r=t.createElement("script");r.async=!0,r.src=a+"?a="+e;
     var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
   })(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-AABOV4O8K47Q-2");
-
+//this is for testing
 document.addEventListener("DOMContentLoaded", function () {
   const fullUrl = window.location.href;
   const currentPageType = fullUrl.includes("contact.html") ? "contact" : "other";
@@ -25,12 +25,12 @@ loginForm.addEventListener('submit', function (e) {
   const password = document.getElementById('password').value;
 
   const allowedEmails = [
-    "Veeru@gmail.com",
-    "Aryansh@gmail.com",
-    "Rahul@gmail.com",
-    "Abhinay@gmail.com",
-    "Travis@gmail.com",
-        "levi@apt.in","luffy@op.in","itachi@got.in", "veerupotpally2003@gmail.com","veeruortungaming99@gmail.com"
+    "Veeru123@gmail.com",
+    "Aryansh123@gmail.com",
+    "Rahul123@gmail.com",
+    "Abhinay123@gmail.com",
+    "Travis123@gmail.com",
+        "levi@apt123.in","luffy123@op.in","itachi123@got.in", "veerupotpally2003@gmail.com","veeruortungaming99@gmail.com"
   ];
       
   if (allowedEmails.includes(email) && password) {
