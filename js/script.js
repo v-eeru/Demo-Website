@@ -163,6 +163,11 @@ draggable.addEventListener('mousedown', function (e) {
   };
 });
 
+
+
+
+
+  
 draggable.ondragstart = function () {
   return false;
 };
@@ -176,3 +181,13 @@ draggable.style.top = `${100 + index * 120}px`;
 });
 });
 
+
+
+
+
+
+
+
+
+
+//empty code plz update it quickly
