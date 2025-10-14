@@ -38,11 +38,34 @@ loginForm.addEventListener('submit', function (e) {
 
     if (typeof aptrinsic !== 'undefined') {
       switch (email) {
-        case "Veeru123@gmail.com":
-          aptrinsic("identify", { id: "1a10", email, firstName: "Veeru",role:"Admin"},{ id: "11120", name: "Sony" },{custom1:"first" });
-          aptrinsic('set', 'globalContext', { "package": "standard" });
-          break;
+              case "Veeru123@gmail.com":
+              const user = { id: "1a10", email, firstName: "Veeru", role: "Admin" };
+              
+              // Multiple accounts list
+              const accounts = [
+                { id: "11120", name: "Sony" },
+                { id: "11121", name: "Apple" },
+                { id: "11122", name: "Google" }
+              ];
+              
+              // Default identify with first account (Sony)
+              aptrinsic("identify", user, accounts[0]);
+              aptrinsic('set', 'globalContext', { "package": "standard" });
+              console.log("Default account: Sony");
 
+              // Provide account switch function globally
+              window.switchAccount = (accountId) => {
+                const account = accounts.find(a => a.id === accountId);
+                if (account) {
+                  aptrinsic("identify", user, account);
+                  console.log("Switched account to:", account.name);
+                } else {
+                  console.warn("Account ID not found:", accountId);
+                }
+              };
+              break;
+
+          
         case "Aryansh123@gmail.com":
           aptrinsic("identify", { id: "1a11", email, firstName: "Aryansh",role:"Admin", Preferedlanguage:"ja-JP"}, { id: "11121", name: "Apple" },{custom1:"first" });
           aptrinsic('set', 'globalContext', { "package": "premium" });
